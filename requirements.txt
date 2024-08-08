@@ -1,4 +1,4 @@
-python-dotenv==1.0.1
+pipython-dotenv==1.0.1
 langchain
 langchain-community==0.2.7
 langchain-openai==0.1.16

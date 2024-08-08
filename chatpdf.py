@@ -11,8 +11,6 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 from dotenv import load_dotenv
 
-
-
 load_dotenv()
 
 def load_prompt():
@@ -27,7 +25,7 @@ def load_prompt():
 
 def load_llm():
     from langchain_openai import ChatOpenAI
-    llm = ChatOpenAI(model_name="gpt-4o", temperature=0.1)
+    llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0)
     return llm
 
 def format_docs(docs):
@@ -63,7 +61,6 @@ def remove_files():
         if os.path.isfile(file) and file.endswith(".pdf"):
             print('Deleting file:', file)
             os.remove(file)
-
 
 if __name__ == '__main__':
     with sl.sidebar:
