@@ -54,13 +54,6 @@ def save_uploadedfile(uploadedfile):
     with open(os.path.join("uploaded", uploadedfile.name), "wb") as f:
         f.write(uploadedfile.getbuffer())
 
-def remove_files():
-    path = os.path.join(os.getcwd(), 'uploaded')
-    for file_name in os.listdir(path):
-        file = os.path.join(path, file_name)
-        if os.path.isfile(file) and file.endswith(".pdf"):
-            print('Deleting file:', file)
-            os.remove(file)
 
 if __name__ == '__main__':
     with sl.sidebar:
@@ -72,8 +65,7 @@ if __name__ == '__main__':
             for pdf in pdf_docs:
                 save_uploadedfile(pdf)
             sl.session_state.knowledge_base = extract_data()
-            remove_files()
-            pdf_docs = []
+
 
             alert = sl.success(body=f"Realizado o Upload do PDF com Sucesso!", icon="✅")
             time.sleep(3) 
